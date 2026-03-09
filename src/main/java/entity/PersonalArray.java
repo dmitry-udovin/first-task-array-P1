@@ -1,6 +1,7 @@
 package entity;
 
-public interface PersonalArray {
-    void init(int rows, int cols);
+public interface PersonalArray<T extends Number> {
     void print();
+
+    void setData(T[] data);
 }

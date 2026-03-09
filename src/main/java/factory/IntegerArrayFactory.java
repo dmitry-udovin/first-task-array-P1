@@ -6,8 +6,8 @@ import entity.PersonalArray;
 public class IntegerArrayFactory extends ArrayAbstractFactory {
 
     @Override
-    protected PersonalArray createArray() {
-        return new IntegerArrayImpl();
+    protected PersonalArray createArray(int length) {
+        return new IntegerArrayImpl(length);
     }
 
 }
