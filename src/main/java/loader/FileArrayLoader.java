@@ -18,7 +18,11 @@ import java.util.List;
 public class FileArrayLoader {
 
     private static final Logger logger = LoggerFactory.getLogger(FileArrayLoader.class);
-    private static final String DATA_FILE = "data/array-data.txt";
+    private String DATA_FILE = "data/array-data.txt";
+
+    public void setDataFile(String dataFile) {
+        DATA_FILE = dataFile;
+    }
 
     public List<PersonalArray> loadArraysFromFile() {
         List<PersonalArray> result = new ArrayList<>();

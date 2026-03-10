@@ -28,4 +28,9 @@ public class DoubleArrayImpl implements PersonalArray<Double> {
         this.data = data;
     }
 
+    @Override
+    public Double[] getData() {
+        return data;
+    }
+
 }

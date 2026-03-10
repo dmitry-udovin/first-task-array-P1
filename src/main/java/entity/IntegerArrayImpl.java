@@ -28,4 +28,9 @@ public class IntegerArrayImpl implements PersonalArray<Integer> {
         this.data = data;
     }
 
+    @Override
+    public Integer[] getData() {
+        return data;
+    }
+
 }
