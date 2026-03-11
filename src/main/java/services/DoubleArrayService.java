@@ -8,12 +8,12 @@ public class DoubleArrayService implements ArrayService<Double> {
     private static final Logger logger = LoggerFactory.getLogger(DoubleArrayService.class);
 
     @Override
-    public Double findSumOfArray(Double[] array) {
+    public Double findSumOfArray(Double[] array) throws ArrayOwnException {
         logger.debug("выполняется findSumOfArray массива размера {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
             logger.warn("массив null или пустой");
-            return 0.0;
+            throw new ArrayOwnException("Массив не проинициализирован или пустой");
         }
 
         double sum = 0.0;
@@ -38,7 +38,7 @@ public class DoubleArrayService implements ArrayService<Double> {
     }
 
     @Override
-    public Double findMinValue(Double[] array) {
+    public Double findMinValue(Double[] array) throws ArrayOwnException {
         logger.debug("поиск минимума в массиве размером {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
@@ -67,7 +67,7 @@ public class DoubleArrayService implements ArrayService<Double> {
     }
 
     @Override
-    public Double findMaxValue(Double[] array) {
+    public Double findMaxValue(Double[] array) throws ArrayOwnException {
         logger.debug("поиск максимума в массиве размером {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
@@ -96,7 +96,7 @@ public class DoubleArrayService implements ArrayService<Double> {
     }
 
     @Override
-    public void bubbleSort(Double[] array) {
+    public void bubbleSort(Double[] array) throws ArrayOwnException {
 
         if (array == null || array.length == 0) {
             throw new ArrayOwnException("массив не проинициализирован или null");
@@ -118,7 +118,7 @@ public class DoubleArrayService implements ArrayService<Double> {
     }
 
     @Override
-    public void selectionSort(Double[] array) {
+    public void selectionSort(Double[] array) throws ArrayOwnException {
 
         if (array == null || array.length == 0) {
             throw new ArrayOwnException("массив не проинициализирован или null");

@@ -9,7 +9,7 @@ public class IntegerArrayService implements ArrayService<Integer> {
     private static final Logger logger = LoggerFactory.getLogger(IntegerArrayService.class);
 
     @Override
-    public Integer findSumOfArray(Integer[] array) {
+    public Integer findSumOfArray(Integer[] array) throws ArrayOwnException {
         logger.debug("выполняется findSumOfArray массива размера {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
@@ -39,7 +39,7 @@ public class IntegerArrayService implements ArrayService<Integer> {
     }
 
     @Override
-    public Integer findMinValue(Integer[] array) {
+    public Integer findMinValue(Integer[] array) throws ArrayOwnException {
         logger.debug("поиск минимума в массиве размером {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
@@ -68,7 +68,7 @@ public class IntegerArrayService implements ArrayService<Integer> {
     }
 
     @Override
-    public Integer findMaxValue(Integer[] array) {
+    public Integer findMaxValue(Integer[] array) throws ArrayOwnException {
         logger.debug("поиск максимума в массиве размером {}", array == null ? "null" : array.length);
 
         if (array == null || array.length == 0) {
@@ -97,7 +97,7 @@ public class IntegerArrayService implements ArrayService<Integer> {
     }
 
     @Override
-    public void bubbleSort(Integer[] array) {
+    public void bubbleSort(Integer[] array) throws ArrayOwnException {
 
         if (array == null || array.length == 0) {
             throw new ArrayOwnException("массив не проинициализирован или null");
@@ -119,7 +119,7 @@ public class IntegerArrayService implements ArrayService<Integer> {
     }
 
     @Override
-    public void selectionSort(Integer[] array) {
+    public void selectionSort(Integer[] array) throws ArrayOwnException {
 
         if (array == null || array.length == 0) {
             throw new ArrayOwnException("массив не проинициализирован или null");

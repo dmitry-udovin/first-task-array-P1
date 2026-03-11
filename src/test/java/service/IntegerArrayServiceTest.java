@@ -1,5 +1,6 @@
 package service;
 
+import exception.ArrayOwnException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import services.ArrayService;
@@ -18,7 +19,7 @@ public class IntegerArrayServiceTest {
     }
 
     @Test
-    void shouldCorrectCheckSum() {
+    void shouldCorrectCheckSum() throws ArrayOwnException {
 
         Integer[] array = new Integer[]{1, 2, 3};
 
@@ -29,7 +30,7 @@ public class IntegerArrayServiceTest {
     }
 
     @Test
-    void shouldCorrectFindMinValue() {
+    void shouldCorrectFindMinValue() throws ArrayOwnException {
 
         Integer[] array = new Integer[]{5, -3, 1000};
 
@@ -40,7 +41,7 @@ public class IntegerArrayServiceTest {
     }
 
     @Test
-    void shouldCorrectFindMaxValue() {
+    void shouldCorrectFindMaxValue() throws ArrayOwnException {
 
         Integer[] array = new Integer[]{99, -100, 58};
 
@@ -51,7 +52,7 @@ public class IntegerArrayServiceTest {
     }
 
     @Test
-    void shouldCorrectSortArray() {
+    void shouldCorrectSortArray() throws ArrayOwnException {
 
         Integer[] array1 = new Integer[]{87, 9, 58, 46};
         Integer[] array2 = new Integer[]{87, 9, 58, 46};
@@ -65,7 +66,7 @@ public class IntegerArrayServiceTest {
     }
 
     @Test
-    void shouldCorrectProcessArrayWithOneElement() {
+    void shouldCorrectProcessArrayWithOneElement() throws ArrayOwnException {
 
         Integer[] array = new Integer[]{15};
 
