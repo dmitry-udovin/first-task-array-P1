@@ -1,10 +1,9 @@
-import entity.PersonalArray;
-import factory.DoubleArrayFactory;
-import loader.FileArrayLoader;
+import by.dmitryudovin.arraytask.validators.entity.PersonalArray;
+import by.dmitryudovin.arraytask.validators.loader.FileArrayLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import validators.ArrayDataValidator;
-import validators.PersonalValidator;
+import by.dmitryudovin.arraytask.validators.ArrayDataValidator;
+import by.dmitryudovin.arraytask.validators.PersonalValidator;
 
 import java.util.List;
 
