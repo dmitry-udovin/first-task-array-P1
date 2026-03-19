@@ -29,7 +29,8 @@ public class AverageCompareSpecification<T extends Number & Comparable<T>> imple
         double avg;
 
         try {
-            avg = (double) service.findAverageValue(data);
+            T avgValue = service.findAverageValue(data);
+            avg = avgValue.doubleValue();
         } catch (ArrayOwnException e) {
             return false;
         }

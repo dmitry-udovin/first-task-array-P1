@@ -10,8 +10,8 @@ public class PersonalArrayComparators {
         return Comparator.comparingLong(PersonalArray::getId);
     }
 
-    public static <T extends Number> Comparator<PersonalArray<T>> byFirstElement() {
-        
-    }
+//    public static <T extends Number> Comparator<PersonalArray<T>> byFirstElement() {
+//        return Comparator.comparingLong()
+//    }
 
 }

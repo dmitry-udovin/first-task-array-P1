@@ -17,8 +17,13 @@ public class IntegerArrayImpl implements PersonalArray<Integer> {
     private static final Logger logger = LoggerFactory.getLogger(IntegerArrayImpl.class);
 
     public IntegerArrayImpl(int length) {
-        this.id = ++idCounter;
         this.data = new Integer[length];
+    }
+
+    public IntegerArrayImpl(long id, String name, Integer[] data) {
+        this.id = ++idCounter;
+        this.name = name;
+        this.data = data;
     }
 
     @Override
