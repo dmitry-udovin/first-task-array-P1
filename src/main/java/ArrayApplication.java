@@ -1,8 +1,8 @@
-import by.dmitryudovin.arraytask.validators.entity.IntegerArrayImpl;
-import by.dmitryudovin.arraytask.validators.entity.PersonalArray;
-import by.dmitryudovin.arraytask.validators.services.ArrayService;
-import by.dmitryudovin.arraytask.validators.services.IntegerArrayService;
-import by.dmitryudovin.arraytask.validators.warehouse.IntegerWarehouseImpl;
+import by.dmitryudovin.arraytask.entity.IntegerArrayImpl;
+import by.dmitryudovin.arraytask.entity.PersonalArray;
+import by.dmitryudovin.arraytask.services.ArrayService;
+import by.dmitryudovin.arraytask.services.IntegerArrayService;
+import by.dmitryudovin.arraytask.warehouse.IntegerWarehouseImpl;
 
 public class ArrayApplication {
 

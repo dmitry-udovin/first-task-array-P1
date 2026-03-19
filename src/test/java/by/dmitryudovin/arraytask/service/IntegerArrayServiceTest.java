@@ -1,10 +1,10 @@
 package by.dmitryudovin.arraytask.service;
 
-import by.dmitryudovin.arraytask.validators.exception.ArrayOwnException;
+import by.dmitryudovin.arraytask.exception.ArrayOwnException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import by.dmitryudovin.arraytask.validators.services.ArrayService;
-import by.dmitryudovin.arraytask.validators.services.IntegerArrayService;
+import by.dmitryudovin.arraytask.services.ArrayService;
+import by.dmitryudovin.arraytask.services.IntegerArrayService;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;

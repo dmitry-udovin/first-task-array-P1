@@ -1,7 +1,6 @@
 package by.dmitryudovin.arraytask.loader;
 
-import by.dmitryudovin.arraytask.validators.entity.PersonalArray;
-import by.dmitryudovin.arraytask.validators.loader.FileArrayLoader;
+import by.dmitryudovin.arraytask.entity.PersonalArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
