@@ -1,12 +1,16 @@
 package by.dmitryudovin.arraytask.entity;
 
+import by.dmitryudovin.arraytask.observer.Observable;
+import by.dmitryudovin.arraytask.observer.Observer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
-public class IntegerArrayImpl implements PersonalArray<Integer> {
+public class IntegerArrayImpl implements PersonalArray<Integer>, Observable {
 
     private static long idCounter = 0;
 
@@ -15,6 +19,9 @@ public class IntegerArrayImpl implements PersonalArray<Integer> {
 
     private Integer[] data;
     private static final Logger logger = LoggerFactory.getLogger(IntegerArrayImpl.class);
+
+    private final List<Observer> observers = new ArrayList<>();
+
 
     public IntegerArrayImpl(int length) {
         this.data = new Integer[length];
@@ -57,6 +64,7 @@ public class IntegerArrayImpl implements PersonalArray<Integer> {
             throw new IllegalArgumentException("некорректный размер массива");
         }
         this.data = data;
+        notifyObservers();
     }
 
     @Override
@@ -64,4 +72,21 @@ public class IntegerArrayImpl implements PersonalArray<Integer> {
         return data;
     }
 
+    @Override
+    public void attach(Observer observer) {
+        observers.add(observer);
+        notifyObservers();
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+    }
 }

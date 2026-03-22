@@ -1,41 +1,29 @@
 import by.dmitryudovin.arraytask.entity.IntegerArrayImpl;
-import by.dmitryudovin.arraytask.entity.PersonalArray;
-import by.dmitryudovin.arraytask.services.ArrayService;
-import by.dmitryudovin.arraytask.services.IntegerArrayService;
+import by.dmitryudovin.arraytask.observer.Observer;
 import by.dmitryudovin.arraytask.warehouse.IntegerWarehouseImpl;
+import by.dmitryudovin.arraytask.warehouse.Warehouse;
 
 public class ArrayApplication {
 
     public static void main(String[] args) {
 
-        ArrayService<Integer> integerArrayService = new IntegerArrayService();
-        IntegerWarehouseImpl integerWarehouse = IntegerWarehouseImpl.getInstance(integerArrayService);
+        Warehouse<Integer> integerWarehouse = IntegerWarehouseImpl.getInstance();
 
-        PersonalArray<Integer> array = new IntegerArrayImpl(1L, "Test", new Integer[]{15, 7, 10, null, 4});
+        IntegerArrayImpl array = new IntegerArrayImpl(1L, "Test", new Integer[]{15, 7, 10, null, 4});
 
-        integerWarehouse.update(array);
+        array.attach((Observer) integerWarehouse);
 
-        System.out.println(integerWarehouse.get(1L).isPresent());
+        System.out.println("stats before update: " + integerWarehouse.get(array.getId()));
 
-//        FileArrayLoader fileArrayLoader = new FileArrayLoader();
-//        List<PersonalArray> arraysFromFile = fileArrayLoader.loadArraysFromFile();
-//
-//        for (PersonalArray persArr : arraysFromFile) {
-//            persArr.print();
-//        }
-//
-//    }
+        System.out.println();
+        System.out.println("------------------------------------------");
+        System.out.println();
 
-//        static void testValidator (String line){
-//            PersonalValidator validator = new ArrayDataValidator(line);
-//            if (validator.isValid()) {
-//                int length = validator.getLength();
-//                String[] tokens = ((ArrayDataValidator) validator).getTokens();
-//                logger.debug("строка: [{}] , type: {} , size: {}", line, validator.getType(), length);
-//            } else {
-//                logger.debug("невалидные данные: [{}]", line);
-//            }
-//        }
+        Integer[] newData = {10, 20, 30, -5, null};
+        array.setData(newData);
+
+        System.out.println("Updated stats: " + integerWarehouse.get(array.getId()));
+
 
     }
 }

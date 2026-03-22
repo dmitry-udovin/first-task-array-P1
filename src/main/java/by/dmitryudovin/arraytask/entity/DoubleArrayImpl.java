@@ -1,12 +1,16 @@
 package by.dmitryudovin.arraytask.entity;
 
+import by.dmitryudovin.arraytask.observer.Observable;
+import by.dmitryudovin.arraytask.observer.Observer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
-public class DoubleArrayImpl implements PersonalArray<Double> {
+public class DoubleArrayImpl implements PersonalArray<Double>, Observable {
 
     private static long idCounter = 0;
 
@@ -15,6 +19,8 @@ public class DoubleArrayImpl implements PersonalArray<Double> {
 
     private Double[] data;
     private static final Logger logger = LoggerFactory.getLogger(DoubleArrayImpl.class);
+
+    private List<Observer> observers = new ArrayList<>();
 
     public DoubleArrayImpl(int length) {
         this.id = ++idCounter;
@@ -59,4 +65,21 @@ public class DoubleArrayImpl implements PersonalArray<Double> {
         return data;
     }
 
+    @Override
+    public void attach(Observer observer) {
+        observers.add(observer);
+        notifyObservers();
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+    }
 }

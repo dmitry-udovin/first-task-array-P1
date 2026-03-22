@@ -1,6 +1,5 @@
 package by.dmitryudovin.arraytask.warehouse;
 
-import by.dmitryudovin.arraytask.entity.PersonalArray;
 import by.dmitryudovin.arraytask.exception.ArrayOwnException;
 
 import java.util.Optional;
@@ -13,5 +12,4 @@ public interface Warehouse<T extends Number & Comparable<T>> {
 
     void remove(long arrayId) throws ArrayOwnException;
 
-    void update(PersonalArray<T> array);
 }
